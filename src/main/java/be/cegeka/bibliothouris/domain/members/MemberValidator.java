@@ -10,7 +10,7 @@ public class MemberValidator {
 
     public boolean isValid(String INSS, MemberRepositoryWithRealDatabase memberRepository) {
         boolean checkValue = true;
-        for (Member currentMember : memberRepository.getAllMembers()) {
+        for (Member currentMember : memberRepository.findAll()) {
             if (currentMember.getINSS().equals(INSS)) {
                 checkValue = false;
             }

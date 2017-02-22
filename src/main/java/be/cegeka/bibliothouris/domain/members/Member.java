@@ -1,14 +1,21 @@
 package be.cegeka.bibliothouris.domain.members;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Member {
+    @Id
+    private String INSS;
 
-    private final String INSS;
-    private final String memberLastName;
-    private final String memberFirstName;
-    private final Address address;
+    private String memberLastName;
+    private String memberFirstName;
+    private Address address;
 
+    public Member() {
+    }
 
-    public Member(String INSS, String memberLastName, String memberFirstName,String streetName, int streetNumber, String postalCode, String city) {
+    public Member(String INSS, String memberLastName, String memberFirstName, String streetName, int streetNumber, String postalCode, String city) {
         this.INSS = INSS;
         this.memberLastName = memberLastName;
         this.memberFirstName = memberFirstName;

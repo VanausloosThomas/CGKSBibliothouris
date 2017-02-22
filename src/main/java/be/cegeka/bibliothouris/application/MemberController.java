@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
-import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -25,7 +24,7 @@ public class MemberController {
     @RequestMapping(method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Member> getUsers() {
+    Iterable<Member> getUsers() {
         return memberService.getAllMembers();
     }
 
