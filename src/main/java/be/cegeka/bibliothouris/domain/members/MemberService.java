@@ -13,11 +13,12 @@ MemberService {
     private MemberRepository memberRepository;*/
     @Inject
     private MemberRepositoryWithRealDatabase memberRepositoryWithRealDatabase;
-    @Inject
-    private MemberValidator memberValidator;
+
+    //@Inject
+    private MemberValidator memberValidator = new MemberValidator();
 
     public void addMember(String INSS,String memberLastName,String memberFirstName, String streetName, int streetNumber, String postalCode, String city) throws INSSAlreadyExistsException {
-        Member member=new Member(INSS,memberLastName,memberFirstName,streetName,streetNumber,postalCode,city);
+        Member member=new Member(INSS,memberLastName,memberFirstName/*,streetName,streetNumber,postalCode,city*/);
         //MemberValidator validator = new MemberValidator();
         if (memberValidator.isValid(member.getINSS(),memberRepositoryWithRealDatabase)) {
             memberRepositoryWithRealDatabase.save(member);

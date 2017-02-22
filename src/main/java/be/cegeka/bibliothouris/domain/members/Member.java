@@ -10,16 +10,16 @@ public class Member {
 
     private String memberLastName;
     private String memberFirstName;
-    private Address address;
+   // private Address address;
 
     public Member() {
     }
 
-    public Member(String INSS, String memberLastName, String memberFirstName, String streetName, int streetNumber, String postalCode, String city) {
+    public Member(String INSS, String memberLastName, String memberFirstName/*, String streetName, int streetNumber, String postalCode, String city*/) {
         this.INSS = INSS;
         this.memberLastName = memberLastName;
         this.memberFirstName = memberFirstName;
-        this.address = new Address(streetName,streetNumber,postalCode,city);
+        //this.address = new Address(streetName,streetNumber,postalCode,city);
     }
 
     public String getINSS() {
@@ -34,9 +34,9 @@ public class Member {
         return memberFirstName;
     }
 
-    public String getMemberCity() {
+   /* public String getMemberCity() {
         return this.address.getCity();
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -47,8 +47,8 @@ public class Member {
 
         if (!INSS.equals(member.INSS)) return false;
         if (!memberLastName.equals(member.memberLastName)) return false;
-        if (!memberFirstName.equals(member.memberFirstName)) return false;
-        return address.equals(member.address);
+        return  (memberFirstName.equals(member.memberFirstName));
+        //return address.equals(member.address);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Member {
         int result = INSS.hashCode();
         result = 31 * result + memberLastName.hashCode();
         result = 31 * result + memberFirstName.hashCode();
-        result = 31 * result + address.hashCode();
+        //result = 31 * result + address.hashCode();
         return result;
     }
 }
